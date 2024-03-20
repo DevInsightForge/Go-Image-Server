@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "image-server"
+    ports:
+      - "4001:4000"
+    environment:
+      - MONGO_URI=mongodb://host.docker.internal:27017
+    command: [ "./main" ]
